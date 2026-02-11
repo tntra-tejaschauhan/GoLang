@@ -1,0 +1,57 @@
+Strategy design pattern defines a family of algorithms,put each one in a saperate class(or struct in go), and make them interchangable at runtime.
+
+insted of using ef-else everywhere , you plug-in diffrent behavior dynamiclly
+
+Use cases:
+
+Payment service
+Compression system
+Sorting logic
+Authentication system
+Rate limiting strategies
+Each has multiple algorithms.
+
+for example:
+    Payment:
+        - Credit Card
+        - UPI
+        - PayPal
+
+insted of 
+            if paymentType == "card" {
+                 ...
+            } else if paymentType == "upi" {
+                ...
+            }
+
+we will use strategy design pattern.
+
+Backend Use Case: Payment Strategy
+
+        We’ll build:
+
+            PaymentStrategy (interface)
+            Concrete strategies (Card, UPI, Crypto)
+            PaymentService (uses strategy)
+
+## Why Strategy Pattern is Powerful
+
+    Without Strategy:
+
+    switch paymentType {
+    case "card":
+    case "upi":
+    case "crypto":
+    }
+
+
+Problems:
+Violates Open-Closed Principle
+Hard to extend
+Too many conditionals
+
+With Strategy:
+Add new payment method without touching existing code
+Clean separation
+Easy to test
+Easy to inject via DI

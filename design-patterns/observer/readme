@@ -1,0 +1,26 @@
+Observer:- it defines a one-to-many dependency between objects so that:
+    when one object (subject) changes state, all its dependents (observers) are notified automatically.
+
+    simple meaning:
+        one publisher 
+        many subscriber
+        when publisher updates -> all subscriber get notified
+
+
+    Example:
+    
+    - You build an Order Service
+
+    When order is created:
+
+        Send Email
+        Send SMS
+        Update Analytics
+        Trigger Inventory deduction
+
+    Instead of hardcoding:
+        sendEmail()
+        sendSMS()
+        updateAnalytics()
+
+    We use Observer.

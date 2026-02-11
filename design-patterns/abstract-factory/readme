@@ -1,0 +1,59 @@
+What is Abstract Factory?
+
+it creates families of relataed objects without specifying their concrete classes.
+
+Factory method - creates one object
+Abstract factory  - create multiple related objects
+
+Use case
+
+    we will build a notification system that supports:
+        Email Sender
+        Sms Sender
+    But we want to support multiple provider:
+        Aws provider
+        Gcp provider
+    Each provider gives its own:
+        Email implementation
+        Sms implementation
+
+So:
+
+Provider        Email       SMS
+----------------------------------
+AWS          AWS Email   	AWS SMS
+GCP	         GCP Email	    GCP SMS
+
+these are family of realated objects.
+
+notification-abstract-factory/
+│
+├── go.mod
+├── main.go
+│
+└── notification/
+    ├── interfaces.go
+    ├── factory.go
+    │
+    ├── aws_email.go
+    ├── aws_sms.go
+    ├── aws_factory.go
+    │
+    ├── gcp_email.go
+    ├── gcp_sms.go
+    ├── gcp_factory.go
+
+
+We did NOT use:
+
+extends
+abstract class
+inheritance
+
+Go achieves Abstract Factory purely using:
+
+interfaces
+package separation
+composition
+
+That is idiomatic Go.

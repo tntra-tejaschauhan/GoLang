@@ -1,0 +1,35 @@
+# factory Design Pattern in Go
+
+## We’ll build a Notification service that can send:
+
+- Email
+- SMS
+- Push
+
+  Client code should not care which concrete implementation is used.
+
+  notification-factory/
+│
+├── go.mod
+├── main.go
+│
+└── notification/
+    ├── notification.go        // interface
+    ├── factory.go             // factory logic
+    │
+    ├── email.go               // Email implementation
+    ├── sms.go                 // SMS implementation
+    └── push.go                // Push implementation
+
+## why this is good backend design 
+    No inheritance
+        Go use Composition+interfaces
+    Open-Close Principle
+        Add New Notification type without touching client code
+    Testable
+        You can mock Notification interface easily
+    Works great with:
+        REST APIs
+        gRPC services
+        Message consumers (Kafka, Pub/Sub)
+        Dependency Injection
