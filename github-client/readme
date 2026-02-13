@@ -1,0 +1,28 @@
+## Mini Project: Public API Client (GitHub User Info)
+
+		We’ll call GitHub’s public API:
+		
+		https://api.github.com/users/{username}
+
+		It returns JSON like:
+		{
+		"login": "octocat",
+		"id": 583231,
+		"public_repos": 8
+		}
+
+		We’ll:
+		Call API
+		Parse JSON
+		Print data
+
+
+You’ll use this when:
+
+	Calling payment gateway
+	Calling stock price API
+	Calling weather API
+	Calling AI model API
+	Calling internal microservice
+
+Same pattern every time.

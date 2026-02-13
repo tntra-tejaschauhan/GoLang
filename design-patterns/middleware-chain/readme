@@ -1,0 +1,49 @@
+Chain of Responsibility:- it lets you pass a request through a chain of handlers.
+
+Each handler:
+
+Decides to handle it or passes to next handler
+
+- no giant if-else
+- no tight coupling
+- clean processing pipeline
+
+this is Exactly how:
+- HTTP middleware works
+- Authentication chains work
+- Validation pipelines work
+- Logging + rate limiting + tracing layers work
+
+we will build mini request pipeline:
+ Logging -> Authentication -> Rate Limiting -> Final Handler
+
+Project structure : -
+
+    middleware-chain/
+    │
+    ├── go.mod
+    ├── main.go
+    │
+    └── middleware/
+        ├── handler.go
+        ├── logging.go
+        ├── auth.go
+        ├── rate_limit.go
+        └── final.go
+
+
+How It Works ->
+
+    If request = "valid-request":
+
+    Logging
+    → Authentication
+    → Authorization
+    → Business Logic
+
+
+    If request = "invalid":
+
+    Logging
+    → Authentication ❌
+    (stops here)
