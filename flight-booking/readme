@@ -1,0 +1,6 @@
+status: free | locked | booked
+locked_by: user_id
+lock_expiry: timestamp              
+
+in java that was easy to name class files,package, method, interface, etc.., but 
+i dont get how to do naming convention in go lang when i build a large scale project.
