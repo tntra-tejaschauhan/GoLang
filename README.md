@@ -33,9 +33,17 @@ It’s the foundational building block of Go.
     func Transfer(from AccountID, to AccountID, amount Money)
 
 
-go context package
+--> Http server with Routing -> running(listening) at localhost : 8080
+    routing :
+        1. /
+        2. /users
+        3. /hi
+
+--> http client -> request to localhost:8080
+
+go context package, channel cancelation, select statement
 go concurrency patterns
 grpc comminication in java
-crud operation with go
+samll crud api with go
 microservices develpement with go
-main design patterns implemented with java and go.
+main design patterns implemented with java and go

@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+
+	"github.com/google/uuid"
 )
 
 // Struct to map JSON response
@@ -18,6 +20,7 @@ func main() {
 
 	if len(os.Args) < 2 {
 		fmt.Println("Usage: go run main.go <github-username>")
+
 		return
 	}
 
@@ -50,4 +53,7 @@ func main() {
 	fmt.Println("Username:", user.Login)
 	fmt.Println("User ID:", user.ID)
 	fmt.Println("Public Repos:", user.PublicRepos)
+	myUUID := uuid.New()
+	fmt.Printf("UUID as type: %s\n", myUUID) // Prints the UUID, e.g., "83064af3-bb81-4514-a6d4-afba340825cd"
+
 }
