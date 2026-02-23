@@ -22,10 +22,10 @@ func main() {
 	var wg sync.WaitGroup
 
 	// Start workers
-	service.StartWorkerPool(requests, 100, &wg)
+	service.StartWorkerPool(requests, 10, &wg)
 
 	// send booking request
-	for i := 0; i < 20000; i++ {
+	for i := 0; i < 50000; i++ {
 
 		booking := models.Booking{
 			UserName: fmt.Sprintf("User-%d", i),

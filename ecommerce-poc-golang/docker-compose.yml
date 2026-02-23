@@ -1,0 +1,69 @@
+version: "3.8"
+
+services:
+  postgres-product:
+    image: postgres:15-alpine
+    container_name: postgres-product
+    environment:
+      POSTGRES_DB: product_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - product-data:/var/lib/postgresql/data
+
+  postgres-cart:
+    image: postgres:15-alpine
+    container_name: postgres-cart
+    environment:
+      POSTGRES_DB: cart_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5437:5432"
+    volumes:
+      - cart-data:/var/lib/postgresql/data
+
+  postgres-invoice:
+    image: postgres:15-alpine
+    container_name: postgres-invoice
+    environment:
+      POSTGRES_DB: invoice_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - invoice-data:/var/lib/postgresql/data
+
+  postgres-payment:
+    image: postgres:15-alpine
+    container_name: postgres-payment
+    environment:
+      POSTGRES_DB: payment_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5435:5432"
+    volumes:
+      - payment-data:/var/lib/postgresql/data
+
+  postgres-management:
+    image: postgres:15-alpine
+    container_name: postgres-management
+    environment:
+      POSTGRES_DB: management_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5436:5432"
+    volumes:
+      - management-data:/var/lib/postgresql/data
+
+volumes:
+  product-data:
+  cart-data:
+  invoice-data:
+  payment-data:
+  management-data:

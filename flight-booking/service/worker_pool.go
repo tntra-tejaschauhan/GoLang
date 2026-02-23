@@ -78,7 +78,7 @@ func worker(id int, requests chan BookingRequest, wg *sync.WaitGroup) {
 			// Payment finishes → first case runs
 			// 8 seconds pass → timeout case runs
 
-		case <-time.After(8 * time.Second):
+		case <-time.After(3 * time.Second):
 
 			req.Booking.Flight.ReleaseSeat(seatNo)
 			status = "timeout"
